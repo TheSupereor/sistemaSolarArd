@@ -20,6 +20,8 @@ PImage img4;
 Gif myAnimation;
 Gif myAnimation1;
 Gif myAnimation2;
+Gif myAnimation3;
+
 int value = -1;
 
 void setup() {
@@ -31,12 +33,16 @@ void setup() {
   myAnimation1 = new Gif(this, "sol.gif");
 
   myAnimation2 = new Gif(this, "lua.gif");
+  
+  myAnimation3 = new Gif(this, "sky.gif");
 
   myAnimation.play();
 
   myAnimation1.play();
 
   myAnimation2.play();
+  
+  myAnimation3.play();
   
 
 
@@ -100,27 +106,34 @@ void keyPressed(){
   else if(keyCode == DOWN && value != 3){
       file2.play();
   }
+  
 }
+  
+  
+//image(myAnimation3, 0, 0, width, height);
+  
+
+
 void terra(){
 
-image(img2, 0, 0);
-image(myAnimation, 60, 70, 500, 500);
+image(img2, 0,0,width, height);
+image(myAnimation, width/33, height/16.5, width*0.261, height*0.468);
 
-image(img1, 0, 0);
+image(img1, 0, 0, width, height);
 }
 
 void sol(){
 
-image(img3, 0, 0);
-image(myAnimation1, 60, 70);
+image(img3, 0, 0, width, height);
+image(myAnimation1, width/33, height/16.5, width*0.261, height*0.468);
 
-image(img1, 0, 0);
+image(img1, 0, 0, width, height);
 }
 
 void lua(){
 
-image(img4, 0, 0);
-image(myAnimation2, 60, 70, 500, 500);
+image(img4, 0, 0, width, height);
+image(myAnimation2, width/33, height/16.5, width*0.261, height*0.468);
 
-image(img1, 0, 0);
+image(img1, 0, 0, width, height);
 }
