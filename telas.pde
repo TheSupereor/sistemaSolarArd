@@ -21,8 +21,6 @@ Gif myAnimation;
 Gif myAnimation1;
 Gif myAnimation2;
 int value = -1;
-int posvalue = 0;
-
 
 void setup() {
 
@@ -55,7 +53,7 @@ void setup() {
 
   file1 = new SoundFile(this, "musica.mp3");
   file1.loop();
-  file1.amp(0.1);
+  file1.amp(0.5);
 
   file = new SoundFile(this, "audio intro.wav");
   file.amp(0.1);
