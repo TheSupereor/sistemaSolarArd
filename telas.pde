@@ -20,7 +20,8 @@ PImage img4;
 Gif myAnimation;
 Gif myAnimation1;
 Gif myAnimation2;
-int value = 0;
+int value = -1;
+int posvalue = 0;
 
 
 void setup() {
@@ -54,12 +55,11 @@ void setup() {
 
   file1 = new SoundFile(this, "musica.mp3");
   file1.loop();
-  file1.amp(0.5);
-
+  file1.amp(0.1);
 
   file = new SoundFile(this, "audio intro.wav");
+  file.amp(0.1);
   file.play();
-  file.amp(0.5);
 
   file2 = new SoundFile(this, "audio switch.mp3");
   
@@ -68,48 +68,61 @@ void setup() {
 
 void draw() {
 
-  image(img, 0, 0, width, height);
+  image(img, 0, 0);
   
   if(keyCode == UP){
+    value = 0;
     terra();
   }
 
   if(keyCode == RIGHT){
+    value = 1;
     lua();
   }
 
   if(keyCode == LEFT){
+    value = 2;
     sol();
+  }
+  if(keyCode == DOWN){
+    value = 3;
   }
 }
 
 void keyPressed(){
-  if(value == 0)
-  {
-    file2.play();
+  if(keyCode == UP && value != 0){
+      file2.play();
+  } 
+  else if(keyCode == RIGHT && value != 1){
+      file2.play();
+  } 
+  else if(keyCode == LEFT && value != 2){
+      file2.play();
+  } 
+  else if(keyCode == DOWN && value != 3){
+      file2.play();
   }
 }
-
 void terra(){
 
-image(img2, 0,0,width, height);
-image(myAnimation, width/33, height/16.5, width*0.261, height*0.468);
+image(img2, 0, 0);
+image(myAnimation, 60, 70, 500, 500);
 
-image(img1, 0, 0, width, height);
+image(img1, 0, 0);
 }
 
 void sol(){
 
-image(img3, 0, 0, width, height);
-image(myAnimation1, width/33, height/16.5, width*0.261, height*0.468);
+image(img3, 0, 0);
+image(myAnimation1, 60, 70);
 
-image(img1, 0, 0, width, height);
+image(img1, 0, 0);
 }
 
 void lua(){
 
-image(img4, 0, 0, width, height);
-image(myAnimation2, width/33, height/16.5, width*0.261, height*0.468);
+image(img4, 0, 0);
+image(myAnimation2, 60, 70, 500, 500);
 
-image(img1, 0, 0, width, height);
+image(img1, 0, 0);
 }
